@@ -476,6 +476,9 @@ app.post('/sms', require('body-parser').json(), requireApiKey, endpoint(async (c
   const text = String(req.body.text)
   return await handleSMS(context, services.line, text)
 }))
+app.get('/', function(req,res){
+  res.send("Hello");
+})
 
 app.listen(80, function(){
   console.log('run at port 80')
