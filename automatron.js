@@ -480,7 +480,7 @@ app.get('/', function(req,res){
   res.send("Hello");
 })
 
-app.listen(process.env.listen_port || 3000, function(){
+app.listen(process.env.PORT || 3000, function(){
   console.log(`run at port ${process.env.listen_port ? process.env.listen_port : 3000 }`)
 }) 
 function requireApiKey(req, res, next) {
