@@ -477,6 +477,9 @@ app.post('/sms', require('body-parser').json(), requireApiKey, endpoint(async (c
   return await handleSMS(context, services.line, text)
 }))
 
+app.listen(80, function(){
+  console.log('run at port 80')
+})
 function requireApiKey(req, res, next) {
   const context = req.webtaskContext
   if (req.body.key !== context.secrets.API_KEY) {
