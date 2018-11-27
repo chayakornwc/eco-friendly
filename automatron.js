@@ -480,9 +480,9 @@ app.get('/', function(req,res){
   res.send("Hello");
 })
 
-app.listen(80, function(){
-  console.log('run at port 80')
-})
+app.listen(process.env.listen_port || 3000, function(){
+  console.log(`run at port ${process.env.listen_port ? process.env.listen_port : 3000 }`)
+}) 
 function requireApiKey(req, res, next) {
   const context = req.webtaskContext
   if (req.body.key !== context.secrets.API_KEY) {
