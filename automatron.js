@@ -476,13 +476,7 @@ app.post('/sms', require('body-parser').json(), requireApiKey, endpoint(async (c
   const text = String(req.body.text)
   return await handleSMS(context, services.line, text)
 }))
-app.get('/', function(req,res){
-  res.send("Hello");
-})
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log(`run at port ${process.env.listen_port ? process.env.listen_port : 3000 }`)
-}) 
 function requireApiKey(req, res, next) {
   const context = req.webtaskContext
   if (req.body.key !== context.secrets.API_KEY) {
